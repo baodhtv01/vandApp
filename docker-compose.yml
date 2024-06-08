@@ -1,0 +1,43 @@
+version: "2.3"
+services:
+    workspace:
+        build:
+            context: .
+            dockerfile: ./docker/Dockerfile
+            args:
+                DOMAIN: "store.biz"
+        container_name: store_framework
+        working_dir: /var/www/html
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - .:/var/www/html
+            - ./docker/nginx_log:/var/log/nginx
+            - ./docker/php-fpm/php-fpm.log:/var/log/php-fpm.log
+            - ./docker/config/app.conf:/etc/nginx/conf.d/app.conf
+            - ./docker/config/supervisord.conf:/etc/supervisord.conf
+        command: /bin/bash -c " service php8.2-fpm start &&
+                                service nginx start &&
+                                tail -f /dev/null"
+        links:
+            - mysql
+            - phpmyadmin
+    mysql:
+        image: mariadb:10
+        container_name: store_mysql
+        ports:
+            - "3308:3306"
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: store_phpmyadmin
+        restart: always
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: mysql
+            UPLOAD_LIMIT: 300M
