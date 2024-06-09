@@ -2,17 +2,17 @@
 
 <h3 align="center">VandApp - Laravel 11</h3>
 <h4>Run Project</h4>
-note: file .env đính kèm trong email
-```bash
+note: file .env đính kèm trong email <br>
+```
 docker-compose up -d
 ```
-```bash
+```
 docker-compose exec workspace composer install
 ```
-```bash
+```
 docker-compose exec workspace php artisan migrate
 ```
-```bash
+```
 docker-compose exec workspace php artisan db:seed
 ```
 
