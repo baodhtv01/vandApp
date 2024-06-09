@@ -2,23 +2,18 @@
 
 <h3 align="center">VandApp - Laravel 11</h3>
 <h4>Run Project</h4>
-note: file .env đính kèm trong email <br>
+note: file .env đính kèm trong email 
+
 ```
 docker-compose up -d
-```
-```
 docker-compose exec workspace composer install
-```
-```
 docker-compose exec workspace php artisan migrate
-```
-```
 docker-compose exec workspace php artisan db:seed
 ```
 
 <h4>API Project</h4>
-Postman Collection: <a href="https://www.postman.com/restless-astronaut-316794/workspace/vandapp/collection/17857152-a9d889d1-25ec-48e3-ba3a-c2027ba35c89?action=share&creator=17857152" target="_blank">Link</a> <br>
-Authentication: <br>
+Postman Collection: <a href="https://www.postman.com/restless-astronaut-316794/workspace/vandapp/collection/17857152-a9d889d1-25ec-48e3-ba3a-c2027ba35c89?action=share&creator=17857152" target="_blank">Link</a> 
+Authentication:
 - Register
 ```
 POST /api/register
