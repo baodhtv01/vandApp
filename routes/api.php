@@ -12,5 +12,11 @@ Route::post('register', [AuthController::class, 'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('stores', StoreController::class);
+
     Route::apiResource('products', ProductController::class);
+
+    Route::group(['prefix' => 'search'], static function () {
+        Route::get('stores', [StoreController::class, 'search']);
+        Route::get('products', [ProductController::class, 'search']);
+    });
 });
