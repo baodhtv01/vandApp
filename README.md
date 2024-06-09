@@ -5,14 +5,20 @@
 note: file .env đính kèm trong email
 ```bash
 docker-compose up -d
+```
+```bash
 docker-compose exec workspace composer install
+```
+```bash
 docker-compose exec workspace php artisan migrate
+```
+```bash
 docker-compose exec workspace php artisan db:seed
 ```
 
 <h4>API Project</h4>
 Postman Collection: <a href="https://www.postman.com/restless-astronaut-316794/workspace/vandapp/collection/17857152-a9d889d1-25ec-48e3-ba3a-c2027ba35c89?action=share&creator=17857152" target="_blank">Link</a> <br>
-Authentication:
+Authentication: <br>
 - Register
 ```
 POST /api/register
