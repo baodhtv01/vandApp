@@ -12,7 +12,10 @@ docker-compose exec workspace php artisan db:seed
 ```
 
 <h4>API Project</h4>
+<p>
 Postman Collection: <a href="https://www.postman.com/restless-astronaut-316794/workspace/vandapp/collection/17857152-a9d889d1-25ec-48e3-ba3a-c2027ba35c89?action=share&creator=17857152" target="_blank">Link</a> 
+</p>
+
 Authentication:
 - Register
 ```
